@@ -227,9 +227,9 @@ OBJET deplacement_objet(OBJET obj)
 OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET precedent)
 {
 	if (obj.p1.y<0 && precedent.p1.y <720)								///L'écrat entre chaque objet est trop(voir quasi-inexistant)
-	{						
-		obj.p1.y = precedent.p1.y +500;										
-
+	{																		//arrêt du jeu quand obj.p1.y est en-dessous de la tete mais pas
+		obj.p1.y = precedent.p1.y +500;										//visible (tester pour plus d'explication)
+																				//le debug peut être fait ds la fonc "choc"
 		obj.p2.y = obj.p1.y +25; 
 	} 
 	
