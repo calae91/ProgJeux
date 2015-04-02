@@ -1,0 +1,25 @@
+##Ce fichier servira à mettre les bugs à corriger et des nouveautées à ajouter
+
+### Bugs
+
+  une position aleatoirement fixé (distance min fixé et une distance max aléatoire) ==> objet
+  position lors de la fin de partie ==> objet et personnage
+  Positionnement des arbres (pas trop collés les uns des autres) ==> paysage
+  La profondeur visuelle avec les arbres ( les arbres ,du fond, apparaissent comme on premier plan) ==>paysage
+    Les arbres du fond s'affiche au dessus de ceux plus en avant.
+  
+
+###Nouveauté
+
+  changement de decor (saison) ==> paysage
+  Mode troll ("changement de decor" absurde/ inversement de sens (bas en haut) ==> paysage, personnage, objet
+  Nouvelle fonction (autre que se déplacer de gauche à droite ou inversement) ==> personnage
+  Ajout d'ombre des arbres ==> paysage
+  Amélioration visuelle du personnage ==> personnage
+  Ajout d'une troisième colonne de deplacement ==> personnage
+    Adaptation avec l'environement ==> paysage et objet
+  Modification de la vitesse en fonction du temps en cours d'une partie ==> constante V ("vitesse de deplacement")
+                                                                        ==> constante A ("temps d'attente")
+  
+  
+  
