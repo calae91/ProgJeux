@@ -7,7 +7,7 @@
 #define N 20 // nombre d'arbre
 #define V 10 // vitesse de deplacement
 #define O 10 // nombre d'objet sur le chemin
-#define A 100 // Temps d'attente de la boucle
+#define A 15 // Temps d'attente de la boucle
 
 struct paysage {
 	POINT p1, p2,p3;
@@ -186,10 +186,10 @@ void affiche_perso(PERSONNAGE pers)
 }
 
 //objet sur le chemin (des rectangles rouges)
-OBJET init_objet(OBJET obj) // A REVOIR
+OBJET init_objet(OBJET obj, OBJET temp) // A REVOIR
 {
 	obj.p1.x = ((2*1200)/4 - (1200/4)/2) -50 ;							//L'écrat entre chaque objet est trop(voir quasi-inexistant)
-	obj.p1.y = alea_int(720)+670;										//Modification du code pour que les objets s'affichent des deux côtés (A faire après)
+	obj.p1.y = temp.p2.y +500;											//Modification du code pour que les objets s'affichent des deux côtés (A faire après)
 	
 	obj.p2.x = ((2*1200)/4 - (1200/4)/2) +50 ;
 	obj.p2.y = obj.p1.y +25;
@@ -213,8 +213,10 @@ OBJET deplacement_objet(OBJET obj)
 OBJET retour_au_point_de_depart_objet(OBJET obj)
 {
 	if (obj.p1.y<0)
-	{
-		obj=init_objet(obj);
+	{						
+		obj.p1.y = 720;										
+
+		obj.p2.y = obj.p1.y +25; 
 	} 
 	
 	return obj;
@@ -222,9 +224,9 @@ OBJET retour_au_point_de_depart_objet(OBJET obj)
 
 int choc(int q, OBJET obj, PERSONNAGE pers) //A REVOIR
 {
-	if ( obj.p1.x +50 <= pers.tete.x && pers.tete.y >= obj.p1.y)		///Le programme ne s'arrête pas à tous les conflits.
-		q=1;															///Il s'arrête à des objets probablements aleatoire. 
-																		//Correction de l'arrêt trop tard
+	if ( (pers.tete.x > obj.p1.x && pers.tete.x < obj.p2.x) && (pers.tete.y > obj.p1.y) )		///Le programme ne s'arrête pas à tous les conflits.
+		q=1;																					///Il s'arrête à des objets probablements aleatoire. 
+																								//Correction de l'arrêt trop tard (lié au centre de la tête)
 	return q;
 }
 
@@ -250,11 +252,17 @@ int main()
 		pay[n]=init_paysage(pay[n]);
 		n++;
 	}
-	n=0;
+	n=1;
+	
+	obj[0].p1.x = ((2*1200)/4 - (1200/4)/2) -50 ;							
+	obj[0].p1.y = 720;										
+	
+	obj[0].p2.x = ((2*1200)/4 - (1200/4)/2) +50 ;
+	obj[0].p2.y = obj[0].p1.y +25;
 	
 	while (n<O)
 	{
-		obj[n]=init_objet(obj[n]);
+		obj[n]=init_objet(obj[n], obj[n-1]);
 		n++;
 	}
 	n=0;
@@ -273,7 +281,7 @@ int main()
 
 			n++;
 		}
-		n=0;
+		n=1;
 		
 		while (n<O)
 		{
