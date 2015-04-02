@@ -1,8 +1,6 @@
-## Ceci est la branche qui relie toutes les branches avec tous les jeux
+# MiniJeux
 
-###jungle-run
-###dame-de-pique
-###iv
-###league-of-cube
+## Ici se trouve toute la partie pour puissance_4
 
-Il faut faire un commit pour une nouveautée ou correction de bug pour simplifier la correction si cet ajout pose problème
+La particularité de ce jeu est de pouvoir jouer à 4J
+  soit 1v1v1v1 ou soit 2v2
