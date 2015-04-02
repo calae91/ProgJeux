@@ -3,8 +3,10 @@
 /* char s[14] = "Hello\0World!";
    printf ("%s\n", s); */
    
+#define Q 100 //nombre de carractère max
+   
 // Variable globale (texte)
-char q[11];
+char q[Q];
 
 void Question_utilisateur()
 {
@@ -14,25 +16,12 @@ void Question_utilisateur()
 	printf("Votre phrase doit comporter au maximun 10 mots /n" ); //temporaire
 	printf("Quand vous avez terminer votre phrase tapez STOP exactement /n" );
 	
-	while (i<11)
-	{
-		if (i!=10)
-		{
-			q[i]=lire_entier_clavier();
-		}
-		else
-		{
-			q[i]="STOP";
-		}
-		printf ("%s\n", s); //test
-		i++;
-	}
 	
 }
 
 int main ()
 {
-	
+	//init_graphics(500,500);	
 
 
 // Fin du code
