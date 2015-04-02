@@ -227,9 +227,9 @@ OBJET deplacement_objet(OBJET obj)
 OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET precedent)
 {
 	if (obj.p1.y<0 && precedent.p1.y <720)								///L'écrat entre chaque objet est trop(voir quasi-inexistant)
-	{																		//arrêt du jeu quand obj.p1.y est en-dessous de la tete mais pas
-		obj.p1.y = precedent.p1.y +500;										//visible (tester pour plus d'explication)
-																				//le debug peut être fait ds la fonc "choc"
+	{																		///arrêt du jeu quand obj.p1.y est en-dessous de la tete mais pas
+		obj.p1.y = precedent.p1.y +500;										///visible (tester pour plus d'explication)
+																				///le debug peut être fait ds la fonc "choc"
 		obj.p2.y = obj.p1.y +25; 
 	} 
 	
@@ -238,9 +238,9 @@ OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET precedent)
 
 int choc(int q, OBJET obj, PERSONNAGE pers) //A REVOIR
 {
-	if ( (pers.tete.x > obj.p1.x && pers.tete.x < obj.p2.x) && (pers.tete.y > obj.p1.y) )		///Le programme ne s'arrête pas à tous les conflits.
-		q=1;																					///Il s'arrête à des objets probablements aleatoire. 
-																								//Correction de l'arrêt trop tard (lié au centre de la tête)
+	if ( (pers.tete.x > obj.p1.x && pers.tete.x < obj.p2.x) && (pers.tete.y > obj.p1.y && pers.p[1][1].y < obj.p2.y) )		///Le programme ne s'arrête pas à tous les conflits.
+		q=1;																												///Il s'arrête à des objets probablements aleatoire. 
+																															//Correction de l'arrêt trop tard (lié au centre de la tête)
 	return q;
 }
 
