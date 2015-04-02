@@ -2,11 +2,11 @@
 
 ### Bugs
 
-  une position aleatoirement fixé (distance min fixé et une distance max aléatoire) ==> objet
-  position lors de la fin de partie ==> objet et personnage
-  Positionnement des arbres (pas trop collés les uns des autres) ==> paysage
-  La profondeur visuelle avec les arbres ( les arbres ,du fond, apparaissent comme on premier plan) ==>paysage
-    Les arbres du fond s'affiche au dessus de ceux plus en avant.
+  une position aleatoirement fixé (distance min fixé et une distance max aléatoire) ==> objet ========================FAIT
+  position lors de la fin de partie ==> objet et personnage===========================================================
+  Positionnement des arbres (pas trop collés les uns des autres) ==> paysage==========================================
+  La profondeur visuelle avec les arbres ( les arbres ,du fond, apparaissent comme on premier plan) ==>paysage========
+    Les arbres du fond s'affiche au dessus de ceux plus en avant.=====================================================
   
 
 ###Nouveauté
