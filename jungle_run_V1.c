@@ -210,11 +210,11 @@ OBJET deplacement_objet(OBJET obj)
 	return obj ;
 }
 
-OBJET retour_au_point_de_depart_objet(OBJET obj)
+OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET precedent)
 {
-	if (obj.p1.y<0)
+	if (obj.p1.y<0 && precedent.p1.y <720)
 	{						
-		obj.p1.y = 720;										
+		obj.p1.y = precedent.p1.y +500;										
 
 		obj.p2.y = obj.p1.y +25; 
 	} 
@@ -287,7 +287,11 @@ int main()
 		{
 			affiche_objet(obj[n]);
 			obj[n] = deplacement_objet(obj[n]);
-			obj[n] = retour_au_point_de_depart_objet(obj[n]);
+			
+			if ((n-1)==0)
+				obj[n] = retour_au_point_de_depart_objet(obj[n], obj[O-1]);
+			else 
+				obj[n] = retour_au_point_de_depart_objet(obj[n], obj[n-1]);
 			
 			q=choc(q,obj[n],pers);
 			
