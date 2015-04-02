@@ -1,0 +1,6 @@
+##Ce fichier servira à mettre les bugs à corriger et des nouveautées à ajouter
+
+### Bugs
+
+
+###Nouveauté
