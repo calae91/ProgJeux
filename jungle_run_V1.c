@@ -188,11 +188,25 @@ void affiche_perso(PERSONNAGE pers)
 //objet sur le chemin (des rectangles rouges)
 OBJET init_objet(OBJET obj, OBJET temp) // A REVOIR
 {
-	obj.p1.x = ((2*1200)/4 - (1200/4)/2) -50 ;							//L'écrat entre chaque objet est trop(voir quasi-inexistant)
-	obj.p1.y = temp.p2.y +500;											//Modification du code pour que les objets s'affichent des deux côtés (A faire après)
+	int a = alea_int(2);
+	int z = 1200/4;
 	
-	obj.p2.x = ((2*1200)/4 - (1200/4)/2) +50 ;
-	obj.p2.y = obj.p1.y +25;
+	if (a==0)
+	{
+		obj.p1.x = ((2*1200)/4 - (1200/4)/2) -50 ;
+		obj.p1.y = temp.p2.y +500;										///Modification du code pour que les objets s'affichent des deux côtés (A faire après)
+	
+		obj.p2.x = obj.p1.x +100 ;
+		obj.p2.y = obj.p1.y +25;	
+	}
+	else
+	{
+		obj.p1.x = ((2*1200)/4 - (1200/4)/2) -50 +z ;
+		obj.p1.y = temp.p2.y +500;
+	
+		obj.p2.x = obj.p1.x +100 ;
+		obj.p2.y = obj.p1.y +25;
+	}
 	
 	return obj ;
 }
@@ -212,7 +226,7 @@ OBJET deplacement_objet(OBJET obj)
 
 OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET precedent)
 {
-	if (obj.p1.y<0 && precedent.p1.y <720)
+	if (obj.p1.y<0 && precedent.p1.y <720)								///L'écrat entre chaque objet est trop(voir quasi-inexistant)
 	{						
 		obj.p1.y = precedent.p1.y +500;										
 
