@@ -7,7 +7,7 @@
   Positionnement des arbres (pas trop collés les uns des autres) ==> paysage==========================================
   La profondeur visuelle avec les arbres ( les arbres ,du fond, apparaissent comme on premier plan) ==>paysage========
     Les arbres du fond s'affiche au dessus de ceux plus en avant.=====================================================
-  Bug de fin de jeu quand l'objet est descentdu en bas de l'ecran ====================================================
+  Bug de fin de jeu quand l'objet est descentdu en bas de l'ecran ====================================================FAIT
   
 
 ###Nouveauté
