@@ -185,16 +185,23 @@ void affiche_perso(PERSONNAGE pers)
 	draw_circle(pers.tete, pers.r,noir);
 }
 
+int augmentation_difficulte(int e)										//Integration de la fonction provoqe des bugs
+{
+	e=e-1;
+	return e;
+}
+
 //objet sur le chemin (des rectangles rouges)
 OBJET init_objet(OBJET obj, OBJET temp) // A REVOIR
 {
 	int a = alea_int(2);
 	int z = 1200/4;
+	int e = 500;														//valeur minimal (300) provoque des affichage imprevue des objets
 	
 	if (a==0)
 	{
 		obj.p1.x = ((2*1200)/4 - (1200/4)/2) -50 ;
-		obj.p1.y = temp.p2.y +500;										///Modification du code pour que les objets s'affichent des deux côtés (A faire après)
+		obj.p1.y = temp.p2.y + e;										///Modification du code pour que les objets s'affichent des deux côtés (A faire après)
 	
 		obj.p2.x = obj.p1.x +100 ;
 		obj.p2.y = obj.p1.y +25;	
@@ -202,7 +209,7 @@ OBJET init_objet(OBJET obj, OBJET temp) // A REVOIR
 	else
 	{
 		obj.p1.x = ((2*1200)/4 - (1200/4)/2) -50 +z ;
-		obj.p1.y = temp.p2.y +500;
+		obj.p1.y = temp.p2.y + e;
 	
 		obj.p2.x = obj.p1.x +100 ;
 		obj.p2.y = obj.p1.y +25;
@@ -228,7 +235,7 @@ OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET precedent)
 {
 	if (obj.p1.y<0 && precedent.p1.y <720)								///L'écrat entre chaque objet est trop(voir quasi-inexistant)
 	{																		///arrêt du jeu quand obj.p1.y est en-dessous de la tete mais pas
-		obj.p1.y = precedent.p1.y +500;										///visible (tester pour plus d'explication)
+		obj.p1.y = precedent.p1.y + 720;										///visible (tester pour plus d'explication)
 																				///le debug peut être fait ds la fonc "choc"
 		obj.p2.y = obj.p1.y +25; 
 	} 
