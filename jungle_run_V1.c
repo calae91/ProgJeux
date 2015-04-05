@@ -6,7 +6,7 @@
 
 #define N 20 // nombre d'arbre
 #define V 10 // vitesse de deplacement
-#define O 2 // nombre d'objet sur le chemin
+#define O 10 // nombre d'objet sur le chemin
 #define A 15 // Temps d'attente de la boucle
 
 #define PG ((2*1200)/4 - (1200/4)/2) -50
@@ -114,7 +114,6 @@ PERSONNAGE init_personnage(PERSONNAGE pers)
 	int n=1;
 	
 	//tron
-//	pers.p[0][0].x = (2*1200)/4 - (1200/4)/2 ;
 	pers.p[0][0].y = 70;
 	pers.p[0][1].x = pers.p[0][0].x;
 	pers.p[0][1].y = pers.p[0][0].y + 100;
@@ -332,10 +331,10 @@ int main()
 			affiche_objet(obj[n]);
 			obj[n] = deplacement_objet(obj[n]);
 			
-			if ((n-1)==0)
-				obj[n] = retour_au_point_de_depart_objet(obj[n], obj[O-1]);
-			else 
-				obj[n] = retour_au_point_de_depart_objet(obj[n], obj[n-1]);
+			if (obj[n].p1.y<0)
+			{
+				obj[n] = retour_au_point_de_depart_objet(obj[n], obj[O-n]);
+			}
 			
 			q=choc(q,obj[n],pers);
 			
