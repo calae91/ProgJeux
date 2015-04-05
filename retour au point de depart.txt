@@ -4,3 +4,20 @@ O // nb total d'objet (même O que le programme)
 Il faut que la fonction commence quand n=O-1 ( quand le dernier objet est affiché à l'écran)
 quand n=O-1 ==> la fonction se lance
 
+# Théorie 1
+
+1 =>9
+2=>8
+3=>7
+.
+.
+.
+
+O=10
+n=1
+O-n=9
+
+n=2
+8
+
+#
