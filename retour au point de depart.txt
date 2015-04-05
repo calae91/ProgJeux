@@ -20,4 +20,34 @@ O-n=9
 n=2
 8
 
-#
+#Théorie 1 ## phase test
+### test 1
+
+Un test peut-être inutile
+On change les arguments de la fonction precedent => suivant
+On test pour O=10 // valeur de base
+ecart 300
+  compilation OK
+  execution BUG
+  
+ECHEC
+
+### test 2
+
+On change seulement la maniere d'appeler la fonctio dans le main
+on garde ce code 			obj[n] = retour_au_point_de_depart_objet(obj[n], obj[n-1]); // code pour faire appel à la fonc.
+<code>(main)
+    while (n<O)
+    {
+      ...//code inchanger
+      if (obj[n].p1.y<0)
+      {
+        	obj[n] = retour_au_point_de_depart_objet(obj[n], obj[O-n]); // O-n ne prendra jamais 0 (O=0 et nmax=9)
+      }
+      
+    }
+</code>
+  compilation OK
+  execution BUG
+  
+ECHEC
