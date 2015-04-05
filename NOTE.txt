@@ -2,12 +2,13 @@
 
 ### Bugs
 
-  une position aleatoirement fixé (distance min fixé et une distance max aléatoire) ==> objet ========================FAIT
-  position lors de la fin de partie ==> objet et personnage===========================================================
-  Positionnement des arbres (pas trop collés les uns des autres) ==> paysage==========================================
-  La profondeur visuelle avec les arbres ( les arbres ,du fond, apparaissent comme on premier plan) ==>paysage========
-    Les arbres du fond s'affiche au dessus de ceux plus en avant.=====================================================
-  Bug de fin de jeu quand l'objet est descentdu en bas de l'ecran ====================================================FAIT
+  une position aleatoirement fixé (distance min fixé et une distance max aléatoire) ==> objet =======================FAIT
+  position lors de la fin de partie ==> objet et personnage==========================================================
+  Positionnement des arbres (pas trop collés les uns des autres) ==> paysage=========================================
+  La profondeur visuelle avec les arbres ( les arbres ,du fond, apparaissent comme on premier plan) ==>paysage=======
+    Les arbres du fond s'affiche au dessus de ceux plus en avant.====================================================
+  Bug de fin de jeu quand l'objet est descentdu en bas de l'ecran ===================================================FAIT
+  Bug position objet (voir fichier "retour au point de depart.txt").=================================================
   
 
 ###Nouveauté
