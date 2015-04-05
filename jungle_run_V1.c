@@ -6,7 +6,7 @@
 
 #define N 20 // nombre d'arbre
 #define V 10 // vitesse de deplacement
-#define O 10 // nombre d'objet sur le chemin
+#define O 2 // nombre d'objet sur le chemin
 #define A 15 // Temps d'attente de la boucle
 
 struct paysage {
@@ -185,7 +185,7 @@ void affiche_perso(PERSONNAGE pers)
 	draw_circle(pers.tete, pers.r,noir);
 }
 
-int augmentation_difficulte(int e)										//Integration de la fonction provoqe des bugs
+int augmentation_difficulte(int e)										//Integration de la fonction provoque des bugs
 {
 	e=e-1;
 	return e;
@@ -196,7 +196,7 @@ OBJET init_objet(OBJET obj, OBJET temp) // A REVOIR
 {
 	int a = alea_int(2);
 	int z = 1200/4;
-	int e = 500;														//valeur minimal (300) provoque des affichage imprevue des objets
+	int e = 300;														//valeur minimal (300) provoque des affichage imprevue des objets
 	
 	if (a==0)
 	{
