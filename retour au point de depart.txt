@@ -51,3 +51,18 @@ on garde ce code 			obj[n] = retour_au_point_de_depart_objet(obj[n], obj[n-1]); 
   execution BUG
   
 ECHEC
+
+### test 3
+
+On garde l'appel ds le main et on refait entierement la fonction
+Il me semble que le probleme vient de la fonction
+  Suppression total du contenu de la fonction
+
+<code>(base de la fonction)
+    OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET precedent)
+    {
+	    
+	    
+	    return obj;
+    }
+</code>
