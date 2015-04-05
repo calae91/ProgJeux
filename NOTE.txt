@@ -21,6 +21,7 @@
     Adaptation avec l'environement ==> paysage et objet
   Modification de la vitesse en fonction du temps en cours d'une partie ==> constante V ("vitesse de deplacement")
                                                                         ==> constante A ("temps d'attente")
+  Amélioration de la fluidité du jeu
   
   
   
