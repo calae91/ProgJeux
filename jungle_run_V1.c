@@ -234,33 +234,7 @@ OBJET deplacement_objet(OBJET obj)
 
 OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET precedent)//Partie à modifier si 3 zones jouables
 {
-	int a = alea_int(2);
 	
-	if (obj.p1.y<0 && precedent.p1.y <720)								///L'écrat entre chaque objet est trop(voir quasi-inexistant)
-	{																		///arrêt du jeu quand obj.p1.y est en-dessous de la tete mais pas 
-		if (a==0)
-		{
-			if ( obj.p1.x < 1200/2 )
-			{					
-				obj.p1.x = 	PD ;
-			}
-			else
-			{
-				obj.p1.x = 	PG ;
-			}
-			
-				obj.p1.y = precedent.p1.y + 720;					
-				obj.p2.x = obj.p1.x +100 ;												
-				obj.p2.y = obj.p1.y +25;
-			
-		}
-		else
-		{
-			obj.p1.y = precedent.p1.y + 720;										///visible (tester pour plus d'explication)
-																				///le debug peut être fait ds la fonc "choc"
-			obj.p2.y = obj.p1.y +25; 
-		}
-	} 
 	
 	return obj;
 }
