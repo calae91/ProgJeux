@@ -1,0 +1,6 @@
+n //n° de l'objet
+O // nb total d'objet (même O que le programme)
+
+Il faut que la fonction commence quand n=O-1 ( quand le dernier objet est affiché à l'écran)
+quand n=O-1 ==> la fonction se lance
+
