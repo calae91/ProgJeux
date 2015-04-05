@@ -9,6 +9,9 @@
 #define O 2 // nombre d'objet sur le chemin
 #define A 15 // Temps d'attente de la boucle
 
+#define PG ((2*1200)/4 - (1200/4)/2) -50
+#define PD ((2*1200)/4 - (1200/4)/2) -50 + (1200/4)
+
 struct paysage {
 	POINT p1, p2,p3;
 	POINT ombre;
@@ -195,12 +198,11 @@ int augmentation_difficulte(int e)										//Integration de la fonction provoqu
 OBJET init_objet(OBJET obj, OBJET temp) // A REVOIR
 {
 	int a = alea_int(2);
-	int z = 1200/4;
 	int e = 300;														//valeur minimal (300) provoque des affichage imprevue des objets
 	
 	if (a==0)
 	{
-		obj.p1.x = ((2*1200)/4 - (1200/4)/2) -50 ;
+		obj.p1.x = PG ;
 		obj.p1.y = temp.p2.y + e;										///Modification du code pour que les objets s'affichent des deux côtés (A faire après)
 	
 		obj.p2.x = obj.p1.x +100 ;
@@ -208,7 +210,7 @@ OBJET init_objet(OBJET obj, OBJET temp) // A REVOIR
 	}
 	else
 	{
-		obj.p1.x = ((2*1200)/4 - (1200/4)/2) -50 +z ;
+		obj.p1.x = PD ;
 		obj.p1.y = temp.p2.y + e;
 	
 		obj.p2.x = obj.p1.x +100 ;
@@ -231,13 +233,34 @@ OBJET deplacement_objet(OBJET obj)
 	return obj ;
 }
 
-OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET precedent)
+OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET precedent)//Partie à modifier si 3 zones jouables
 {
+	int a = alea_int(2);
+	
 	if (obj.p1.y<0 && precedent.p1.y <720)								///L'écrat entre chaque objet est trop(voir quasi-inexistant)
-	{																		///arrêt du jeu quand obj.p1.y est en-dessous de la tete mais pas
-		obj.p1.y = precedent.p1.y + 720;										///visible (tester pour plus d'explication)
+	{																		///arrêt du jeu quand obj.p1.y est en-dessous de la tete mais pas 
+		if (a==0)
+		{
+			if ( obj.p1.x < 1200/2 )
+			{					
+				obj.p1.x = 	PD ;
+			}
+			else
+			{
+				obj.p1.x = 	PG ;
+			}
+			
+				obj.p1.y = precedent.p1.y + 720;					
+				obj.p2.x = obj.p1.x +100 ;												
+				obj.p2.y = obj.p1.y +25;
+			
+		}
+		else
+		{
+			obj.p1.y = precedent.p1.y + 720;										///visible (tester pour plus d'explication)
 																				///le debug peut être fait ds la fonc "choc"
-		obj.p2.y = obj.p1.y +25; 
+			obj.p2.y = obj.p1.y +25; 
+		}
 	} 
 	
 	return obj;
