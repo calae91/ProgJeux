@@ -232,9 +232,13 @@ OBJET deplacement_objet(OBJET obj)
 	return obj ;
 }
 
-OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET precedent)//Partie à modifier si 3 zones jouables
+OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET opposee)//Partie à modifier si 3 zones jouables
 {
-	
+	if (opposee.p1.x < 720)
+	    {
+	    	obj.p1.y = 720;
+	    	obj.p2.y = obj.p1.y +25;
+	    }
 	
 	return obj;
 }
