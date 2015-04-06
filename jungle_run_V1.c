@@ -318,7 +318,7 @@ int main()
 			affiche_objet(obj[n]);
 			obj[n] = deplacement_objet(obj[n]);
 			
-			/*if (obj[n].p1.y<0 && k==O-n)
+			/*if (obj[n].p1.y<0 && k==O-n) Le problème vient de là
 			{
 				obj[n] = retour_au_point_de_depart_objet(obj[n], obj[n-1],e);
 				k--;
