@@ -42,7 +42,7 @@ void copyright()
 	POINT p;
 	p.x = 5; p.y = 20;
 	
-	affpol("Copyright Yobero, approuvé par l'association des feeder.com, @2015",10,p,noir);
+	aff_pol("Copyright Yobero, approuve par l'association des feeder.com, @2015",8,p,noir);
 }
 
 void paysage ()
@@ -326,11 +326,18 @@ int main()
 			affiche_objet(obj[n]);
 			obj[n] = deplacement_objet(obj[n]);
 			
-			/*if (obj[n].p1.y<0 && k==O-n) Le problème vient de là
+			if (obj[n].p1.y<0 && k==O-n) //Le problème vient de là
 			{
-				obj[n] = retour_au_point_de_depart_objet(obj[n], obj[n-1],e);
+				if (n==1)
+				{
+					obj[n] = retour_au_point_de_depart_objet(obj[n], obj[O-1],e);
+				}
+				else
+				{
+					obj[n] = retour_au_point_de_depart_objet(obj[n], obj[n-1],e);
+				}
 				k--;
-			}*/
+			}
 			
 			q=choc(q,obj[n],pers);
 			
