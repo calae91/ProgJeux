@@ -37,6 +37,14 @@ struct objet {
 };
 typedef struct objet OBJET;
 
+void copyright()
+{
+	POINT p;
+	p.x = 5; p.y = 20;
+	
+	affpol("Copyright Yobero, approuvé par l'association des feeder.com, @2015",10,p,noir);
+}
+
 void paysage ()
 {
 	POINT p1, p2;
@@ -333,6 +341,8 @@ int main()
 		pers=deplacemet_personnage(pers,p);
 		pers = init_personnage(pers);
 		affiche_perso(pers);
+		
+		copyright();
 		
 		affiche_all();
 		attendre(A);
