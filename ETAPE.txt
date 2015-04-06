@@ -1,0 +1,12 @@
+#ETAPE 1
+
+  Faire l'initialisation de la grille de jeu (même taille pour 2,3,4 joueurs)
+  Faire afficher la grille
+  
+#ETAPE 2
+
+  Faire l'initialisation des tours pour les joueurs (2,3,4 joueurs)
+    adaption en fonction du nombre de joueur
+  Faire l'initialisation de jetons (2,3,4 joueurs)
+    couleurs dif
+  
