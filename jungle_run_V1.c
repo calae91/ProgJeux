@@ -6,11 +6,16 @@
 
 #define N 20 // nombre d'arbre
 #define V 10 // vitesse de deplacement
-#define O 10 // nombre d'objet sur le chemin
+#define O 10  // nombre d'objet sur le chemin
+#define K O-1 // constante de condition
 #define A 15 // Temps d'attente de la boucle
+#define E 500 //ecart entre objet
 
 #define PG ((2*1200)/4 - (1200/4)/2) -50
 #define PD ((2*1200)/4 - (1200/4)/2) -50 + (1200/4)
+
+//VARIABLE GLOBALE
+int Z=1; // multiplicateur d'ecart "YOLO"
 
 struct paysage {
 	POINT p1, p2,p3;
@@ -187,17 +192,16 @@ void affiche_perso(PERSONNAGE pers)
 	draw_circle(pers.tete, pers.r,noir);
 }
 
-int augmentation_difficulte(int e)										//Integration de la fonction provoque des bugs
+int augmentation_difficulte(int e)										//Integration de la fonction provoque des bugs (mise en quaentaine :D)
 {
 	e=e-1;
 	return e;
 }
 
 //objet sur le chemin (des rectangles rouges)
-OBJET init_objet(OBJET obj, OBJET temp) // A REVOIR
+OBJET init_objet(OBJET obj, OBJET temp , int e) // A REVOIR
 {
-	int a = alea_int(2);
-	int e = 300;														//valeur minimal (300) provoque des affichage imprevue des objets
+	int a = alea_int(2);														//valeur minimal (300) provoque des affichage imprevue des objets
 	
 	if (a==0)
 	{
@@ -232,12 +236,15 @@ OBJET deplacement_objet(OBJET obj)
 	return obj ;
 }
 
-OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET opposee)//Partie à modifier si 3 zones jouables
+OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET opposee,int e)//Partie à modifier si 3 zones jouables
 {
 	if (opposee.p1.x < 720)
 	    {
-	    	obj.p1.y = 720;
+	    	obj.p1.y = 720 + e;
 	    	obj.p2.y = obj.p1.y +25;
+	    	
+	    	e=augmentation_difficulte(e);
+	    	Z++;
 	    }
 	
 	return obj;
@@ -261,7 +268,9 @@ int main()
 	
 	POINT p;
 	
-	int q=0;
+	int q=0; // varialble de fin de game (quand q=1)
+	int k=K; //varialbe de condition pour retour au point de depart (9,8,7,6,5,..)
+	int e = E; //ecart entre objet
 	
 	pers.a=0;
 	pers.p[0][0].x = (2*1200)/4 - (1200/4)/2 ;
@@ -283,7 +292,7 @@ int main()
 	
 	while (n<O)
 	{
-		obj[n]=init_objet(obj[n], obj[n-1]);
+		obj[n]=init_objet(obj[n], obj[n-1],e);
 		n++;
 	}
 	n=0;
@@ -309,10 +318,11 @@ int main()
 			affiche_objet(obj[n]);
 			obj[n] = deplacement_objet(obj[n]);
 			
-			if (obj[n].p1.y<0)
+			/*if (obj[n].p1.y<0 && k==O-n)
 			{
-				obj[n] = retour_au_point_de_depart_objet(obj[n], obj[O-n]);
-			}
+				obj[n] = retour_au_point_de_depart_objet(obj[n], obj[n-1],e);
+				k--;
+			}*/
 			
 			q=choc(q,obj[n],pers);
 			
@@ -327,6 +337,7 @@ int main()
 		affiche_all();
 		attendre(A);
 		n=0;
+		k=K;
 	}
 	
 // Fin du code
