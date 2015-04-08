@@ -1,0 +1,6 @@
+La dame de pique aura les même règles de base ET aussi sur demande des variantes +/-fun
+  -Toutes les cartes donnent des points
+  -Les coeurs donnent le double (1=>2)
+  -...
+
+#A modifier si de nouvelle variante
