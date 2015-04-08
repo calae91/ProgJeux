@@ -8,7 +8,7 @@
   La profondeur visuelle avec les arbres ( les arbres ,du fond, apparaissent comme on premier plan) ==>paysage=======
     Les arbres du fond s'affiche au dessus de ceux plus en avant.====================================================
   Bug de fin de jeu quand l'objet est descentdu en bas de l'ecran ===================================================FAIT
-  Bug position objet (voir fichier "retour au point de depart.txt").=================================================
+ *Bug position objet (voir fichier "retour au point de depart.txt").=================================================
   
 
 ###Nouveauté
@@ -25,4 +25,4 @@
   Amélioration de la fluidité du jeu
   
   
-  
+  * Faire un release quand FAIT
