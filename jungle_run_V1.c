@@ -6,16 +6,15 @@
 
 #define N 20 // nombre d'arbre
 #define V 10 // vitesse de deplacement
-#define O 10  // nombre d'objet sur le chemin
-#define K O-1 // constante de condition
-#define A 15 // Temps d'attente de la boucle
+#define O 5  // nombre d'objet sur le chemin
+#define A 100 // Temps d'attente de la boucle
 #define E 500 //ecart entre objet
 
 #define PG ((2*1200)/4 - (1200/4)/2) -50
 #define PD ((2*1200)/4 - (1200/4)/2) -50 + (1200/4)
 
 //VARIABLE GLOBALE
-int Z=1; // multiplicateur d'ecart "YOLO"
+int Z=1; // variable d'ecart "YOLO"
 
 struct paysage {
 	POINT p1, p2,p3;
@@ -244,15 +243,15 @@ OBJET deplacement_objet(OBJET obj)
 	return obj ;
 }
 
-OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET opposee,int e)//Partie à modifier si 3 zones jouables
-{
-	if (opposee.p1.x < 720)
+OBJET retour_au_point_de_depart_objet(OBJET obj, OBJET precedent,int e)//Partie à modifier si 3 zones jouables
+{																		//bug nombre pair
+	if (precedent.p1.x < 720)
 	    {
 	    	obj.p1.y = 720 + e;
 	    	obj.p2.y = obj.p1.y +25;
 	    	
-	    	e=augmentation_difficulte(e);
-	    	Z++;
+	    	//e=augmentation_difficulte(e);
+	    	//Z++;
 	    }
 	
 	return obj;
@@ -277,7 +276,6 @@ int main()
 	POINT p;
 	
 	int q=0; // varialble de fin de game (quand q=1)
-	int k=K; //varialbe de condition pour retour au point de depart (9,8,7,6,5,..)
 	int e = E; //ecart entre objet
 	
 	pers.a=0;
@@ -326,17 +324,16 @@ int main()
 			affiche_objet(obj[n]);
 			obj[n] = deplacement_objet(obj[n]);
 			
-			if (obj[n].p1.y<0 && k==O-n) //Le problème vient de là
+			if (obj[n].p1.y<0) //Le problème vient de là
 			{
 				if (n==1)
 				{
-					obj[n] = retour_au_point_de_depart_objet(obj[n], obj[O-1],e);
+					obj[1] = retour_au_point_de_depart_objet(obj[1], obj[O-1],e);
 				}
 				else
 				{
 					obj[n] = retour_au_point_de_depart_objet(obj[n], obj[n-1],e);
 				}
-				k--;
 			}
 			
 			q=choc(q,obj[n],pers);
@@ -354,7 +351,6 @@ int main()
 		affiche_all();
 		attendre(A);
 		n=0;
-		k=K;
 	}
 	
 // Fin du code
