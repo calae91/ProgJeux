@@ -78,3 +78,5 @@ On va garder ce teste dans le programme et le modifier pour corrigé le bug
 
 RESOLUTION partielle du bug
 	"le prog ne fait pas come la theorie 1"
+
+Quand le nombre d'objet est pair, il y a un objet qui a comme "opposee" lui même
