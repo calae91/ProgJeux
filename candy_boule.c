@@ -1,8 +1,16 @@
 #include "graphics.h"
 
-#define LON 320
-#define LAR 2*LON
+//128 cases au total
+#define LON 320 //multiple de 8 (8 cases)
+#define LAR 2*LON // (16 cases)
 #define E LON/8
+
+struct boule {
+	POINT centre; // position de la boule
+	COULEUR c; // couleur de la boule
+	int v; // valeur de la boule (1,2,3,..) en fonction du nombre de couleur
+};
+typedef struct boule BOULE ;
 
 void affichage_plateau_H(POINT p)
 {
@@ -36,7 +44,7 @@ void affichage_plateau()
 {
 	POINT p;
 	p.x = 0; p.y = 0;
-	
+	fill_screen(blanc);
 	affichage_plateau_H(p);
 	affichage_plateau_V(p);
 }
@@ -44,7 +52,8 @@ void affichage_plateau()
 int main ()
 {
 	init_graphics(LON,LAR);
-	fill_screen(blanc);
+	
+	BOULE b[128];
 	
 	affichage_plateau();
 	
