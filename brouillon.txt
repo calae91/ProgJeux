@@ -1,0 +1,6 @@
+taille de case 8*8
+nb total de case 128
+nb de case H 8
+nb de case V 16
+
+rayon du cercle 7 (8-1)
