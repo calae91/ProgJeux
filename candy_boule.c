@@ -60,22 +60,22 @@ void init_boule(BOULE b[128])
 	b[0].centre.x = D; b[0].centre.y = D;
 	b[0].c=bleu;
 	
-	while ((b[n-1].centre.x)+(D) < LON && n<128)
+	while ((b[n-1].centre.x)+2*D < LON && n<128)
 	{
-		while ((h==1 || (b[n-1].centre.y)+(D) < LAR)  && n<128)
+		while ((h==1 || (b[n-1].centre.y)+ 2*D < LAR)  && n<128)
 		{
 			a = alea_int(4);
 			
 			if (h==1)
 			{
-				b[n].centre.x = b[n-1].centre.x +D;
-				h=0;
-				
+				b[n].centre.x = b[n-1].centre.x +2*D;
+				b[n].centre.y = D;
 			}
 			else
+			{
 				b[n].centre.x = b[n-1].centre.x;
-				
-			b[n].centre.y = b[n-1].centre.y + D	;
+				b[n].centre.y = b[n-1].centre.y + 2*D;
+			}
 			
 			if(a==0)
 				b[n].c=bleu;
@@ -90,7 +90,6 @@ void init_boule(BOULE b[128])
 			n++;
 		}
 		h=1;
-		b[n].centre.y = D;
 	}
 
 }
