@@ -54,7 +54,8 @@ void affichage_plateau()
 void init_boule(BOULE b[128])
 {
 	int n=1;
-	int a ;
+	int a;
+	int h=0;
 	
 	b[0].centre.x = D; b[0].centre.y = D;
 	b[0].c=bleu;
@@ -67,7 +68,11 @@ void init_boule(BOULE b[128])
 			{
 				a = alea_int(4);
 				
-				b[n].centre.x = b[n-1].centre.x;
+				if (h==1)
+				{
+					b[n].centre.x = b[n-1].centre.x;
+					h=0;
+				}
 				b[n].centre.y = b[n-1].centre.y + D	;
 				
 				if(a==0)
@@ -82,6 +87,8 @@ void init_boule(BOULE b[128])
 				n++;
 			}
 			b[n].centre.x = b[n-1].centre.x +D;
+			h=1
+			b[n].centre.y = D;
 		}
 	}
 }
