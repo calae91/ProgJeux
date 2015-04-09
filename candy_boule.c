@@ -4,8 +4,8 @@
 #define LON 320 //multiple de 8 (8 cases)
 #define LAR 2*LON // (16 cases)
 #define E LON/8
-#define D 4 //centre de la case
-#define R 3 //rayon du cercle
+#define D 20 //centre de la case
+#define R D-1 //rayon du cercle
 
 struct boule {
 	POINT centre; // position de la boule
@@ -60,37 +60,39 @@ void init_boule(BOULE b[128])
 	b[0].centre.x = D; b[0].centre.y = D;
 	b[0].c=bleu;
 	
-	while (n<128)
+	while ((b[n-1].centre.x)+(D) < LON && n<128)
 	{
-		while ((b[n-1].centre.x)+(2*D) < LON)
+		while ((h==1 || (b[n-1].centre.y)+(D) < LAR)  && n<128)
 		{
-			while ((b[n-1].centre.y)+(2*D) < LON )
+			a = alea_int(4);
+			
+			if (h==1)
 			{
-				a = alea_int(4);
+				b[n].centre.x = b[n-1].centre.x +D;
+				h=0;
 				
-				if (h==1)
-				{
-					b[n].centre.x = b[n-1].centre.x;
-					h=0;
-				}
-				b[n].centre.y = b[n-1].centre.y + D	;
-				
-				if(a==0)
-					b[n].c=bleu;
-				if(a==1)
-					b[n].c=rouge;
-				if(a==2)
-					b[n].c=vert;
-				if(a==3)
-					b[n].c=jaune;
-				
-				n++;
 			}
-			b[n].centre.x = b[n-1].centre.x +D;
-			h=1
-			b[n].centre.y = D;
+			else
+				b[n].centre.x = b[n-1].centre.x;
+				
+			b[n].centre.y = b[n-1].centre.y + D	;
+			
+			if(a==0)
+				b[n].c=bleu;
+			if(a==1)
+				b[n].c=rouge;
+			if(a==2)
+				b[n].c=vert;
+			if(a==3)
+				b[n].c=jaune;
+			
+			h=0;
+			n++;
 		}
+		h=1;
+		b[n].centre.y = D;
 	}
+
 }
 
 void affiche_boule(BOULE b)
