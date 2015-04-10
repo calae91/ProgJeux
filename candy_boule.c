@@ -51,20 +51,44 @@ void affichage_plateau()
 	affichage_plateau_V(p);
 }
 
+void choix_couleur(BOULE b[128],int n)
+{
+	int a = alea_int(4);
+	
+			if(a==0)
+			{
+				b[n].c=bleu;
+				b[n].v = 0;
+			}
+			if(a==1)
+			{
+				b[n].c=rouge;
+				b[n].v = 1;
+			}
+			if(a==2)
+			{
+				b[n].c=vert;
+				b[n].v = 2;
+			}
+			if(a==3)
+			{
+				b[n].c=jaune;
+				b[n].v = 3;
+			}
+}
+
 void init_boule(BOULE b[128])
 {
 	int n=1;
-	int a;
 	int h=0;
 	
 	b[0].centre.x = D; b[0].centre.y = D;
-	b[0].c=bleu;
+	b[0].c=bleu; b[0].v =0;
 	
 	while ((b[n-1].centre.x)+2*D < LON && n<128)
 	{
 		while ((h==1 || (b[n-1].centre.y)+ 2*D < LAR)  && n<128)
 		{
-			a = alea_int(4);
 			
 			if (h==1)
 			{
@@ -76,15 +100,8 @@ void init_boule(BOULE b[128])
 				b[n].centre.x = b[n-1].centre.x;
 				b[n].centre.y = b[n-1].centre.y + 2*D;
 			}
-			
-			if(a==0)
-				b[n].c=bleu;
-			if(a==1)
-				b[n].c=rouge;
-			if(a==2)
-				b[n].c=vert;
-			if(a==3)
-				b[n].c=jaune;
+				
+			choix_couleur(b,n);
 			
 			h=0;
 			n++;
