@@ -116,6 +116,12 @@ void affiche_boule(BOULE b)
 	draw_fill_circle(b.centre,R,b.c);
 }
 
+void clic_utilisateur(BOULE b)
+{
+	POINT util;
+	util=wait_clic();
+}
+
 int main ()
 {
 	init_graphics(LON,LAR);
